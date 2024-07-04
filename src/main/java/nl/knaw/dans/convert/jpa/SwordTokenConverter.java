@@ -24,6 +24,12 @@ public class SwordTokenConverter implements AttributeConverter<String, String> {
 
     @Override
     public String convertToDatabaseColumn(String swordToken) {
+        if (swordToken == null) {
+            return null;
+        }
+        if (!swordToken.startsWith("sword:")) {
+            throw new IllegalStateException("Sword token does not start with 'sword:' prefix: '" + swordToken + "'");
+        }
         return swordToken.substring("sword:".length());
     }
 
