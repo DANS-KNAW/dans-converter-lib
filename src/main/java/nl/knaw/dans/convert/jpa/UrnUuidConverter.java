@@ -16,10 +16,11 @@
 package nl.knaw.dans.convert.jpa;
 
 import javax.persistence.AttributeConverter;
-import javax.persistence.Converter;
 import java.net.URI;
 
-@Converter(autoApply = true)
+/**
+ * JPA converter that store a urn:uuid URI as a UUID string in the database.
+ */
 public class UrnUuidConverter implements AttributeConverter<URI, String> {
 
     @Override
