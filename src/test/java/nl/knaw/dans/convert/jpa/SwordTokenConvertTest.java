@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class SwordTokenConvertTest {
-    
+
     @Test
     public void testConvertToDatabaseColumn() throws Exception {
         SwordTokenConverter converter = new SwordTokenConverter();
@@ -30,7 +30,7 @@ public class SwordTokenConvertTest {
         String dbData = converter.convertToDatabaseColumn(input);
         assertThat(dbData).isEqualTo("1234");
     }
-        
+
     @Test
     public void testConvertToEntityAttribute() throws Exception {
         SwordTokenConverter converter = new SwordTokenConverter();
@@ -41,14 +41,25 @@ public class SwordTokenConvertTest {
 
         assertThat(actual).isEqualTo(expected);
     }
-    
+
     @Test
     public void throws_IllegalStateExeption_if_not_a_sword_token() throws Exception {
         SwordTokenConverter converter = new SwordTokenConverter();
         var input = "1234";
-        
+
         assertThatThrownBy(() -> converter.convertToDatabaseColumn(input))
             .isInstanceOf(IllegalStateException.class)
             .hasMessage("Sword token does not start with 'sword:' prefix: '1234'");
     }
+
+    @Test
+    public void convertToEntityAttribute_returns_null_if_input_is_null() throws Exception {
+        SwordTokenConverter converter = new SwordTokenConverter();
+        String input = null;
+
+        String actual = converter.convertToEntityAttribute(input);
+
+        assertThat(actual).isNull();
+    }
+    
 }
