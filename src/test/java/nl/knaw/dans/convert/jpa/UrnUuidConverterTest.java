@@ -33,7 +33,7 @@ public class UrnUuidConverterTest {
         String dbData = converter.convertToDatabaseColumn(input);
         assertThat(dbData).isEqualTo("" + uuid);
     }
-    
+
     @Test
     public void testConvertToEntityAttribute() throws Exception {
         UrnUuidConverter converter = new UrnUuidConverter();

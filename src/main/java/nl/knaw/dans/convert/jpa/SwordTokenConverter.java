@@ -37,7 +37,7 @@ public class SwordTokenConverter implements AttributeConverter<String, String> {
     public String convertToEntityAttribute(String uuid) {
         if (uuid == null) {
             return null;
-        } 
+        }
         return "sword:" + uuid;
     }
 }
