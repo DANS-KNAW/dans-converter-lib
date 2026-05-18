@@ -1,10 +1,7 @@
-MANUAL
-======
+Description
+===========
 
 Library with JavaBean validator annotations.
-
-DESCRIPTION
------------
 
 This library provides a set of ready-to-use converters for Jackson and JPA.
 
@@ -49,28 +46,34 @@ The JPA converters are located in the `nl.knaw.dans.convert.jpa` package.
 
 This allows you to store a URI in a database as a string instead of as a serialized object.
 
-INSTALLATION
-------------
+Using the library
+-----------------
 
-To use this library in a Maven-based project:
+To use this library in a Maven-based project, add the following to your `pom.xml`.
 
-1. Include in your `pom.xml` a declaration for the DANS maven repository:
+### 1. Declare the DANS maven repository
 
-        <repositories>
-            <!-- possibly other repository declarations here ... -->
-            <repository>
-                <id>DANS</id>
-                <releases>
-                    <enabled>true</enabled>
-                </releases>
-                <url>https://maven.dans.knaw.nl/releases/</url>
-            </repository>
-        </repositories>
+```xml
 
-2. Include a dependency on this library.
+<repositories>
+    <!-- possibly other repository declarations here ... -->
+    <repository>
+        <id>DANS</id>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+        <url>https://maven.dans.knaw.nl/releases/</url>
+    </repository>
+</repositories>
+```
 
-        <dependency>
-            <groupId>nl.knaw.dans</groupId>
-            <artifactId>dans-converter-lib</artifactId>
-            <version>{version}</version> <!-- <=== FILL LIBRARY VERSION TO USE HERE -->
-        </dependency>
+### 2. Include a dependency on this library
+
+```xml
+
+<dependency>
+    <groupId>nl.knaw.dans</groupId>
+    <artifactId>dans-converter-lib</artifactId>
+    <version>{version}</version> <!-- <=== FILL LIBRARY VERSION TO USE HERE -->
+</dependency>
+```
